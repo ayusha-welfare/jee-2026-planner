@@ -11,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -169,7 +172,42 @@
             </div>
         </section>
 
-        <footer class="text-center mt-12">
+        <!-- DOWNLOAD SECTION START -->
+        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h2 class="text-3xl font-bold text-center text-primary mb-6">
+                Download Detailed Syllabus PDFs
+            </h2>
+            <p class="text-center text-gray-600 mb-8">
+                Download the detailed chapter-wise breakdown and question bank for each subject to practice offline.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Physics Button -->
+                <a href="physics.pdf" download class="flex items-center justify-center flex-col p-6 rounded-xl bg-[#ff9832] text-white transition transform hover:scale-105 hover:shadow-lg group">
+                    <i class="fas fa-atom text-4xl mb-3 group-hover:animate-bounce"></i>
+                    <span class="text-xl font-bold">Physics</span>
+                    <span class="text-sm opacity-90 mt-1">Download PDF <i class="fas fa-download ml-1"></i></span>
+                </a>
+
+                <!-- Chemistry Button -->
+                <a href="chemistry.pdf" download class="flex items-center justify-center flex-col p-6 rounded-xl bg-[#ffb561] text-white transition transform hover:scale-105 hover:shadow-lg group">
+                    <i class="fas fa-flask text-4xl mb-3 group-hover:animate-bounce"></i>
+                    <span class="text-xl font-bold">Chemistry</span>
+                    <span class="text-sm opacity-90 mt-1">Download PDF <i class="fas fa-download ml-1"></i></span>
+                </a>
+
+                <!-- Maths Button -->
+                <a href="maths.pdf" download class="flex items-center justify-center flex-col p-6 rounded-xl bg-[#ff7b00] text-white transition transform hover:scale-105 hover:shadow-lg group">
+                    <i class="fas fa-calculator text-4xl mb-3 group-hover:animate-bounce"></i>
+                    <span class="text-xl font-bold">Mathematics</span>
+                    <span class="text-sm opacity-90 mt-1">Download PDF <i class="fas fa-download ml-1"></i></span>
+                </a>
+
+            </div>
+        </section>
+        <!-- DOWNLOAD SECTION END -->
+
+        <footer class="text-center mt-12 pb-8">
             <p class="text-gray-600 text-sm">
                 Disclaimer: All data presented is based on analysis of previous years' JEE Mains papers (2023-2024) and is intended for strategic planning. Actual question distribution in JEE Mains 2026 may vary.
             </p>
@@ -233,7 +271,7 @@
                 maintainAspectRatio: false,
                 layout: {
                     padding: {
-                        right: 120 // Significantly increased to fit "Qs (XX Marks)"
+                        right: 120
                     }
                 },
                 scales: {
@@ -284,7 +322,6 @@
                             size: 12
                         },
                         formatter: function(value) {
-                            // CALCULATE MARKS HERE (Questions * 4)
                             return value + ' Qs (' + (value * 4) + ' Marks)';
                         }
                     }
