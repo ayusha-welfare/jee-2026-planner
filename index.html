@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strategic Guide to JEE Mains 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Chart.js DataLabels Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -101,7 +105,8 @@
                     Physics: Chapter Weightage
                 </h2>
                 <p class="text-center text-gray-700 max-w-xl mx-auto mb-6">
-                    Physics often features a balanced paper, but modern physics, electricity, and mechanics are consistent high-scorers. This chart shows the average number of questions asked per chapter based on past trends.
+                    Physics often features a balanced paper, but modern physics, electricity, and mechanics are consistent high-scorers.
+                    <br><span class="text-sm font-semibold text-secondary">Labels show: Questions (Total Marks)</span>
                 </p>
                 <div class="chart-container-bar">
                     <canvas id="physicsChart"></canvas>
@@ -113,7 +118,8 @@
                     Chemistry: Chapter Weightage
                 </h2>
                 <p class="text-center text-gray-700 max-w-xl mx-auto mb-6">
-                    Chemistry is often the most scoring subject. Focus on Physical (Electrochemistry, Thermodynamics) and Organic (GOC, Name Reactions) as they carry significant weight, along with key Inorganic chapters.
+                    Chemistry is often the most scoring subject. Focus on Physical (Electrochemistry) and Organic (GOC) as they carry significant weight.
+                    <br><span class="text-sm font-semibold text-secondary">Labels show: Questions (Total Marks)</span>
                 </p>
                 <div class="chart-container-bar">
                     <canvas id="chemistryChart"></canvas>
@@ -126,7 +132,8 @@
                 Mathematics: Chapter Weightage
             </h2>
             <p class="text-center text-gray-700 max-w-2xl mx-auto mb-6">
-                Mathematics can be lengthly. Prioritizing chapters like 3D & Vectors, Calculus, and Conic Sections is crucial. These topics form the bulk of the paper and are essential for reaching your target score.
+                Mathematics is crucial. Prioritizing chapters like 3D & Vectors and Calculus is essential for reaching your target score.
+                <br><span class="text-sm font-semibold text-secondary">Labels show: Questions (Total Marks)</span>
             </p>
             <div class="chart-container-bar">
                 <canvas id="mathsChart"></canvas>
@@ -172,6 +179,9 @@
 
     <script>
         window.onload = function () {
+
+            // Register the plugin globally
+            Chart.register(ChartDataLabels);
 
             const colorPalette = {
                 primary: '#ff7b00',
@@ -221,6 +231,11 @@
                 indexAxis: indexAxis,
                 responsive: true,
                 maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        right: 120 // Significantly increased to fit "Qs (XX Marks)"
+                    }
+                },
                 scales: {
                     x: {
                         beginAtZero: true,
@@ -230,12 +245,18 @@
                         },
                         ticks: {
                             stepSize: 1
+                        },
+                        grid: {
+                            display: false
                         }
                     },
                     y: {
                         title: {
                             display: indexAxis === 'x',
                             text: 'Average Number of Questions'
+                        },
+                        grid: {
+                            display: false
                         }
                     }
                 },
@@ -245,7 +266,26 @@
                     },
                     tooltip: {
                         callbacks: {
-                            title: tooltipTitleCallback
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                const val = context.raw;
+                                return val + ' Questions (' + (val * 4) + ' Marks)';
+                            }
+                        }
+                    },
+                    datalabels: {
+                        display: true, 
+                        anchor: 'end',
+                        align: 'end',
+                        clip: false,
+                        color: '#333333',
+                        font: {
+                            weight: 'bold',
+                            size: 12
+                        },
+                        formatter: function(value) {
+                            // CALCULATE MARKS HERE (Questions * 4)
+                            return value + ' Qs (' + (value * 4) + ' Marks)';
                         }
                     }
                 }
@@ -289,6 +329,19 @@
                         tooltip: {
                             callbacks: {
                                 title: tooltipTitleCallback
+                            }
+                        },
+                        datalabels: {
+                            display: true,
+                            color: function(context) {
+                                return context.dataIndex === 0 ? '#fff' : '#333';
+                            },
+                            font: {
+                                weight: 'bold',
+                                size: 14
+                            },
+                            formatter: function(value, context) {
+                                return value + ' Marks';
                             }
                         }
                     }
