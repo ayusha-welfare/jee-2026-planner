@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Guide to JEE Mains 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container-donut {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        .chart-container-bar {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 500px;
+            max-height: 600px;
+        }
+        @media (min-width: 768px) {
+            .chart-container-donut {
+                height: 350px;
+            }
+            .chart-container-bar {
+                height: 550px;
+            }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff7b00',
+                        secondary: '#ff9832',
+                        tertiary: '#ffb561',
+                        quaternary: '#ffd290',
+                        light: '#ffeec0',
+                        dark: '#333333',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-dark">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-2">
+                Strategic Guide to JEE Mains 2026
+            </h1>
+            <p class="text-xl text-gray-700">
+                Your Visual Plan to Achieve a 180-Mark Target
+            </p>
+        </header>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                <h3 class="text-2xl font-bold text-secondary mb-2">300</h3>
+                <p class="text-gray-600">Total Marks</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                <h3 class="text-2xl font-bold text-primary mb-2">180</h3>
+                <p class="text-gray-600">Your Target Score (60%)</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                <h3 class="text-2xl font-bold text-secondary mb-2">75</h3>
+                <p class="text-gray-600">Total Questions to Attempt</p>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h2 class="text-3xl font-bold text-center text-primary mb-4">
+                Visualizing Your 180-Mark Goal
+            </h2>
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-6">
+                To score 180 out of 300, you need to correctly answer 45 questions (45 * 4 = 180), assuming no negative marking. This donut chart shows your 60% target, which translates to a strong focus on high-weightage chapters.
+            </p>
+            <div class="chart-container-donut">
+                <canvas id="targetDonutChart"></canvas>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold text-center text-primary mb-4">
+                    Physics: Chapter Weightage
+                </h2>
+                <p class="text-center text-gray-700 max-w-xl mx-auto mb-6">
+                    Physics often features a balanced paper, but modern physics, electricity, and mechanics are consistent high-scorers. This chart shows the average number of questions asked per chapter based on past trends.
+                </p>
+                <div class="chart-container-bar">
+                    <canvas id="physicsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-3xl font-bold text-center text-primary mb-4">
+                    Chemistry: Chapter Weightage
+                </h2>
+                <p class="text-center text-gray-700 max-w-xl mx-auto mb-6">
+                    Chemistry is often the most scoring subject. Focus on Physical (Electrochemistry, Thermodynamics) and Organic (GOC, Name Reactions) as they carry significant weight, along with key Inorganic chapters.
+                </p>
+                <div class="chart-container-bar">
+                    <canvas id="chemistryChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h2 class="text-3xl font-bold text-center text-primary mb-4">
+                Mathematics: Chapter Weightage
+            </h2>
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-6">
+                Mathematics can be lengthly. Prioritizing chapters like 3D & Vectors, Calculus, and Conic Sections is crucial. These topics form the bulk of the paper and are essential for reaching your target score.
+            </p>
+            <div class="chart-container-bar">
+                <canvas id="mathsChart"></canvas>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
+            <h2 class="text-3xl font-bold text-center text-primary mb-4">
+                Strategic Focus for 180+ Marks
+            </h2>
+            <p class="text-center text-gray-700 max-w-2xl mx-auto mb-8">
+                A 180-mark target is achievable with a smart strategy. It's not about studying everything, but studying the right things well.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-light p-6 rounded-lg border-l-4 border-primary">
+                    <h4 class="text-xl font-bold text-dark mb-2">Phase 1: High-Priority Chapters</h4>
+                    <p class="text-gray-700">
+                        Master the top 50-60% of the syllabus shown in the charts. Aim for 100% accuracy in these "must-do" chapters from all three subjects.
+                    </p>
+                </div>
+                <div class="bg-light p-6 rounded-lg border-l-4 border-secondary">
+                    <h4 class="text-xl font-bold text-dark mb-2">Phase 2: Mock Tests & Analysis</h4>
+                    <p class="text-gray-700">
+                        Start taking full-length mock tests early. Your goal is to consistently score 180-200. Analyze mistakes to identify and fix weak areas.
+                    </p>
+                </div>
+                <div class="bg-light p-6 rounded-lg border-l-4 border-tertiary">
+                    <h4 class="text-xl font-bold text-dark mb-2">Phase 3: Medium & Easy Chapters</h4>
+                    <p class="text-gray-700">
+                        Secure easy marks from "low-weightage" but simple chapters (e.g., Mathematical Reasoning, EM Waves). These are your rank boosters.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-12">
+            <p class="text-gray-600 text-sm">
+                Disclaimer: All data presented is based on analysis of previous years' JEE Mains papers (2023-2024) and is intended for strategic planning. Actual question distribution in JEE Mains 2026 may vary.
+            </p>
+        </footer>
+
+    </div>
+
+    <script>
+        window.onload = function () {
+
+            const colorPalette = {
+                primary: '#ff7b00',
+                secondary: '#ff9832',
+                tertiary: '#ffb561',
+                quaternary: '#ffd290',
+                light: '#ffeec0',
+                dark: '#333333'
+            };
+
+            function wrapLabels(labels) {
+                const maxLen = 16;
+                return labels.map(label => {
+                    if (typeof label !== 'string' || label.length <= maxLen) {
+                        return label;
+                    }
+                    const words = label.split(' ');
+                    const lines = [];
+                    let currentLine = '';
+                    for (const word of words) {
+                        const testLine = (currentLine + ' ' + word).trim();
+                        if (testLine.length > maxLen && currentLine.length > 0) {
+                            lines.push(currentLine.trim());
+                            currentLine = word;
+                        } else {
+                            currentLine = testLine;
+                        }
+                    }
+                    if (currentLine) {
+                        lines.push(currentLine.trim());
+                    }
+                    return lines.length > 0 ? lines : [label];
+                });
+            }
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                if (!item) return '';
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            const commonBarOptions = (indexAxis = 'x') => ({
+                indexAxis: indexAxis,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: indexAxis === 'y',
+                            text: 'Average Number of Questions'
+                        },
+                        ticks: {
+                            stepSize: 1
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: indexAxis === 'x',
+                            text: 'Average Number of Questions'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            });
+
+            const physicsData = {
+                labels: ['Modern Physics', 'Electrostatics & Current', 'Magnetism & EMI', 'Optics', 'Mechanics (Rotation, NLM, WPE)', 'Thermodynamics & KTG', 'SHM & Waves', 'Gravitation & Properties of Matter'],
+                questions: [4, 4, 3, 3, 5, 3, 2, 2]
+            };
+
+            const chemistryData = {
+                labels: ['General Organic Chemistry', 'Hydrocarbons & Alkyl/Aryl Halides', 'Alcohols, Phenols, Ethers & Carbonyls', 'p-Block Elements', 'd & f Block Elements', 'Coordination Compounds', 'Chemical Bonding', 'Electrochemistry', 'Chemical Kinetics', 'Thermodynamics & Gaseous State', 'Atomic Structure & Equilibrium'],
+                questions: [3, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2]
+            };
+
+            const mathsData = {
+                labels: ['3D Geometry & Vectors', 'Definite & Indefinite Integration', 'Application of Derivatives', 'Differential Equations', 'Conic Sections & Circles', 'Sequence & Series', 'Binomial Theorem', 'Matrices & Determinants', 'Functions & Relations', 'Permutations, Combinations & Probability'],
+                questions: [4, 3, 2, 2, 3, 2, 2, 2, 2, 2]
+            };
+
+            var ctxDonut = document.getElementById('targetDonutChart').getContext('2d');
+            new Chart(ctxDonut, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Target Score (180)', 'Remaining (120)'],
+                    datasets: [{
+                        data: [180, 120],
+                        backgroundColor: [colorPalette.primary, colorPalette.quaternary],
+                        borderColor: ['#ffffff', '#ffffff'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+
+            var ctxPhys = document.getElementById('physicsChart').getContext('2d');
+            new Chart(ctxPhys, {
+                type: 'bar',
+                data: {
+                    labels: wrapLabels(physicsData.labels),
+                    datasets: [{
+                        label: 'Avg. Questions',
+                        data: physicsData.questions,
+                        backgroundColor: colorPalette.secondary,
+                        borderColor: colorPalette.primary,
+                        borderWidth: 1
+                    }]
+                },
+                options: commonBarOptions('y')
+            });
+
+            var ctxChem = document.getElementById('chemistryChart').getContext('2d');
+            new Chart(ctxChem, {
+                type: 'bar',
+                data: {
+                    labels: wrapLabels(chemistryData.labels),
+                    datasets: [{
+                        label: 'Avg. Questions',
+                        data: chemistryData.questions,
+                        backgroundColor: colorPalette.tertiary,
+                        borderColor: colorPalette.secondary,
+                        borderWidth: 1
+                    }]
+                },
+                options: commonBarOptions('y')
+            });
+
+            var ctxMaths = document.getElementById('mathsChart').getContext('2d');
+            new Chart(ctxMaths, {
+                type: 'bar',
+                data: {
+                    labels: wrapLabels(mathsData.labels),
+                    datasets: [{
+                        label: 'Avg. Questions',
+                        data: mathsData.questions,
+                        backgroundColor: colorPalette.primary,
+                        borderColor: colorPalette.secondary,
+                        borderWidth: 1
+                    }]
+                },
+                options: commonBarOptions('y')
+            });
+
+        };
+    </script>
+</body>
+</html>
